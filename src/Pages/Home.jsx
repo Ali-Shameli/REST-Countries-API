@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import RegionFilter from "../components/RegionFilter";
 import CountryGrid from "../components/CountryGrid";
 import { useEffect, useState } from "react";
+import { getCountries } from "../services/countries";
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
