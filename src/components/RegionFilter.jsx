@@ -1,6 +1,10 @@
-const RegionFilter = () => {
+const RegionFilter = ({ selectedRegion, setSelectedRegion }) => {
   return (
-    <select className="h-14 w-52 cursor-pointer rounded-md px-6 shadow-md outline-none">
+    <select
+      value={selectedRegion}
+      onChange={(e) => setSelectedRegion(e.target.value)}
+      className="rounded-md p-4 shadow-md outline-none"
+    >
       <option value="">Filter by Region</option>
       <option value="Africa">Africa</option>
       <option value="Americas">America</option>
