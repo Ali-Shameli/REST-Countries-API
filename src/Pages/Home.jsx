@@ -11,6 +11,7 @@ const Home = () => {
   const [error, setError] = useState(null);
 
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     async function fetchCountries() {
@@ -27,12 +28,22 @@ const Home = () => {
     fetchCountries();
   }, []);
 
-  const filteredCountries =
-  selectedRegion === ""
-    ? countries
-    : countries.filter(
-        (country) => country.region === selectedRegion
-      );
+  // const filteredCountries =
+  // selectedRegion === ""
+  //   ? countries
+  //   : countries.filter(
+  //       (country) => country.region === selectedRegion
+  //     );
+
+  const displayedCountries = countries
+  .filter(country =>
+    selectedRegion === "" || country.region === selectedRegion
+  )
+  .filter(country =>
+    country.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
@@ -40,14 +51,17 @@ const Home = () => {
 
       <main className="mx-auto max-w-7xl px-4 py-12">
         <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <SearchBar />
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           <RegionFilter
             selectedRegion={selectedRegion}
             setSelectedRegion={setSelectedRegion}
           />
         </div>
 
-        <CountryGrid countries={filteredCountries} />
+        <CountryGrid countries={displayedCountries} />
       </main>
     </>
   );
