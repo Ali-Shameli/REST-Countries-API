@@ -1,0 +1,20 @@
+import { Moon } from "lucide-react";
+
+const Header = () => {
+  return (
+    <header className="shadow-sm">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
+        <h1 className="text-xl font-extrabold">
+          Where in the world?
+        </h1>
+
+        <button className="flex cursor-pointer items-center gap-2 font-semibold">
+          <Moon size={18} />
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
