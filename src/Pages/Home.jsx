@@ -2,8 +2,28 @@ import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
 import RegionFilter from "../components/RegionFilter";
 import CountryGrid from "../components/CountryGrid";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchCountries() {
+      try {
+        const data = await getCountries();
+        setCountries(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchCountries();
+  }, []);
+
   return (
     <>
       <Header />
@@ -14,7 +34,7 @@ const Home = () => {
           <RegionFilter />
         </div>
 
-        <CountryGrid />
+        <CountryGrid countries={countries} />
       </main>
     </>
   );
