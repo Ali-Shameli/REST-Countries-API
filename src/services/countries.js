@@ -7,3 +7,11 @@ export async function getCountries() {
 
   return response.json();
 }
+
+export async function getCountryByName(name) {
+  const countries = await getCountries();
+
+  return countries.find(
+    (country) => country.name === name
+  );
+}
