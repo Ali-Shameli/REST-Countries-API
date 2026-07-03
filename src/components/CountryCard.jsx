@@ -10,7 +10,7 @@ const CountryCard = ({ country }) => {
   } = country;
 
   return (
-    <Link to={`/country/${country.name}`}>
+    <Link to={`/country/${encodeURIComponent(country.name)}`}>
       <article className="overflow-hidden rounded-md shadow-md">
         <img
           src={flags.svg}
