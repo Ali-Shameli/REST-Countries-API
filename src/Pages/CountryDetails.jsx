@@ -135,12 +135,13 @@ const CountryDetails = () => {
               <div className="flex flex-wrap gap-3">
 
                 {borders ? borders.map((border) => (
-                  <span
+                  <Link
                     key={border}
+                    to={`/country/${country.name}`}
                     className="rounded-md px-6 py-1 shadow-md"
                   >
                     {border}
-                  </span>
+                  </Link>
                 ))
               :"N/A"}
 
