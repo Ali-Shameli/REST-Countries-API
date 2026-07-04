@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getCountryByName } from "../services/countries";
+import { getCountryByCode, getCountryByName } from "../services/countries";
 
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
@@ -23,9 +23,24 @@ const CountryDetails = () => {
   fetchCountry();
 }, [countryName]);
 
+const [borderCountries, setBorderCountries] = useState([]);
+
+  useEffect(() => {
+  async function fetchBorders() {
+    if (!country?.borders) return;
+
+    const data = await Promise.all(
+      country.borders.map((code) => getCountryByCode(code))
+    );
+
+    setBorderCountries(data);
+  }
+
+  fetchBorders();
+}, [country]);
+
   if (!country) return <p>Loading...</p>;
 
-  console.log(country)
   const {
     flags,
     name,
@@ -40,6 +55,7 @@ const CountryDetails = () => {
     borders,
   } = country;
 
+  
   return (
     <>
       <Header />
@@ -134,16 +150,15 @@ const CountryDetails = () => {
 
               <div className="flex flex-wrap gap-3">
 
-                {borders ? borders.map((border) => (
+                {borderCountries.map((border) => (
                   <Link
-                    key={border}
-                    to={`/country/${country.name}`}
+                    key={border.alpha3Code}
+                    to={`/country/${border.name}`}
                     className="rounded-md px-6 py-1 shadow-md"
                   >
-                    {border}
+                    {border.name}
                   </Link>
-                ))
-              :"N/A"}
+                ))}
 
               </div>
 
