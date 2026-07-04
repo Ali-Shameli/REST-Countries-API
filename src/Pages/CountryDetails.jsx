@@ -154,7 +154,7 @@ const [borderCountries, setBorderCountries] = useState([]);
                   <Link
                     key={border.alpha3Code}
                     to={`/country/${border.name}`}
-                    className="rounded-md px-6 py-1 shadow-md"
+                    className="rounded-md px-6 py-1 shadow-md bg-(--elements)"
                   >
                     {border.name}
                   </Link>

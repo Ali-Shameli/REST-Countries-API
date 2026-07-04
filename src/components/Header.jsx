@@ -2,7 +2,7 @@ import { Moon } from "lucide-react";
 
 const Header = () => {
   return (
-    <header className="shadow-sm">
+    <header className="shadow-sm bg-(--elements)">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         <h1 className="text-xl font-extrabold">
           Where in the world?

@@ -3,7 +3,7 @@ const RegionFilter = ({ selectedRegion, setSelectedRegion }) => {
     <select
       value={selectedRegion}
       onChange={(e) => setSelectedRegion(e.target.value)}
-      className="rounded-md p-4 shadow-md outline-none"
+      className="rounded-md p-4 shadow-md outline-none bg-(--elements)"
     >
       <option value="">Filter by Region</option>
       <option value="Africa">Africa</option>

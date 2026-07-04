@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+:root{
     --bg: hsl(0, 0%, 99%) ;
     --text:  hsl(200, 15%, 8%) ;
     /* --input: hsl(0, 0%, 50%), */
@@ -11,4 +11,9 @@
     --text:  hsl(0, 100%, 100%) ;
     /* --input: hsl(0, 0%, 50%), */
     --elements: hsl(209, 23%, 22%);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
 }
