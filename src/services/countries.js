@@ -15,3 +15,11 @@ export async function getCountryByName(name) {
     (country) => country.name === name
   );
 }
+
+export async function getCountryByCode(alpha3Code) {
+  const countries = await getCountries();
+
+  return countries.find(
+    (country) => country.alpha3Code === alpha3Code
+  );
+}
