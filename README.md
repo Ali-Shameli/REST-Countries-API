@@ -1,4 +1,7 @@
 # REST Countries API with Color Theme Switcher
+![React](https://img.shields.io/badge/React-19-blue)
+![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ![Project Preview](./design/desktop-design-home-dark.jpg)
 ![Project Preview](./design/mobile-design-detail-dark.jpg)
